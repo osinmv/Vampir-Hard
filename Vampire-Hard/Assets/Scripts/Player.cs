@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float speed = 10f;
+    public float speed = 500f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +20,8 @@ public class Player : MonoBehaviour
     // Updated is called fixed amount of times per
     private void FixedUpdate()
     {
-        Debug.Log(Input.GetAxis("Vertical"));
-        rb.velocity = new Vector2(0, Input.GetAxis("Vertical") * speed * Time.fixedDeltaTime);
-        rb.velocity = new Vector2( Input.GetAxis("Horizontal") * speed * Time.fixedDeltaTime,0);
+        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.right = new Vector2(mouse.x - gameObject.transform.position.x, mouse.y - gameObject.transform.position.y);
+        rb.velocity = new Vector2( Input.GetAxis("Horizontal") * speed * Time.fixedDeltaTime, Input.GetAxis("Vertical") * speed * Time.fixedDeltaTime);
     }
 }
