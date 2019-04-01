@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     // Updated is called fixed amount of times per
     private void FixedUpdate()
     {
-        rb.AddForce(new Vector2(Input.GetAxisRaw("horizontal") * speed * Time.fixedDeltaTime, 0));
-        rb.AddForce(new Vector2(Input.GetAxisRaw("vertical") * speed * Time.fixedDeltaTime, 0));
+        rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal") * speed * Time.fixedDeltaTime, 0));
+        rb.AddForce(new Vector2(Input.GetAxisRaw("Vertical") * speed * Time.fixedDeltaTime, 0));
     }
 }
