@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Rigidbody2D rb;
+    public float speed = 10f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class Player : MonoBehaviour
     // Updated is called fixed amount of times per
     private void FixedUpdate()
     {
-        
+        rb.AddForce(new Vector2(Input.GetAxisRaw("horizontal") * speed * Time.fixedDeltaTime, 0));
+        rb.AddForce(new Vector2(Input.GetAxisRaw("vertical") * speed * Time.fixedDeltaTime, 0));
     }
 }
