@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     // Updated is called fixed amount of times per
     private void FixedUpdate()
     {
+        Debug.Log(Input.GetAxis("Vertical"));
         rb.velocity = new Vector2(0, Input.GetAxis("Vertical") * speed * Time.fixedDeltaTime);
         rb.velocity = new Vector2( Input.GetAxis("Horizontal") * speed * Time.fixedDeltaTime,0);
     }
