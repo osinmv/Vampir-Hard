@@ -271,7 +271,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566702550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.34, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -402,13 +402,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75034660a7146454dac24bf283968bff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pref_human_nicy: {fileID: 2687980625780071303, guid: 5df31a75a1b42f84abf818fd96a7ce49,
+  pref_human_nicy: {fileID: 3525169166194067362, guid: 5df31a75a1b42f84abf818fd96a7ce49,
     type: 3}
-  pref_human_brown: {fileID: 8360186652432003828, guid: f3a4205022082084685042eeff67aa15,
+  pref_human_brown: {fileID: 7776246058482229621, guid: f3a4205022082084685042eeff67aa15,
     type: 3}
-  pref_human_soldier: {fileID: 8192585119890969621, guid: 7a2995be50df1a0449b4241d08a52fd6,
+  pref_human_soldier: {fileID: 1707666362121708443, guid: 7a2995be50df1a0449b4241d08a52fd6,
     type: 3}
-  hats: []
 --- !u!4 &695938522
 Transform:
   m_ObjectHideFlags: 0

@@ -11,8 +11,8 @@ public class HumansCoordinator : MonoBehaviour
     public GameObject pref_human_brown;
     public GameObject pref_human_soldier;
     private Sprite[] hats;
-    private GameObject[] crowd;
-
+    private List<GameObject> crowd = new List<GameObject>();
+    private Color[] cols = new Color[] {Color.green,Color.yellow,Color.magenta,Color.red,Color.cyan,Color.blue,Color.white};
     void Awake()
     {
         hats = Resources.LoadAll("Sprites/hats", typeof(Sprite)).Cast<Sprite>().ToArray();
@@ -21,27 +21,30 @@ public class HumansCoordinator : MonoBehaviour
 
     void set_Hair(GameObject a)
     {
-        /// GameObject b = a.transform.FindChild("Hair");
+        SpriteRenderer b = a.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
+        b.sprite = hats[Random.Range(0, 4)];
+        b.color = cols[Random.Range(0, cols.Length)];
     }
     
     void Start()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 1; i++)
         {
-            int a = (int)Random.Range(0, 2);
+            int a = (int)Random.Range(0, 3);
             if (a == 0)
                 {
-                    crowd[i] = Instantiate(pref_human_brown);
-                    set_Hair(crowd[i]);
+                    crowd.Add(Instantiate(pref_human_brown));
                 }
             else if (a == 1) 
                 {
-                    crowd[i] = Instantiate(pref_human_soldier);
-                }
+                    crowd.Add(Instantiate(pref_human_soldier));
+            }
             else
                 {
-                    crowd[i] = Instantiate(pref_human_nicy);
+                    crowd.Add(Instantiate(pref_human_nicy));
                 }
+            set_Hair(crowd[i]);
+            crowd[i].GetComponent<Personality>().setTarget(new Vector2(-10, -10));
         }
     }
 
