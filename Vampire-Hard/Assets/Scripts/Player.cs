@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("Walking", false);
             started_sucking = true;
+            rb.velocity = new Vector2(0, 0);
+            
         }
 
         if (started_sucking)
@@ -42,8 +44,12 @@ public class Player : MonoBehaviour
     // Updated is called fixed amount of times per
     private void FixedUpdate()
     {
-        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.right = new Vector2(mouse.x - gameObject.transform.position.x, mouse.y - gameObject.transform.position.y);
-        rb.velocity = new Vector2( Input.GetAxis("Horizontal") * speed * Time.fixedDeltaTime, Input.GetAxis("Vertical") * speed * Time.fixedDeltaTime);
+        if (!started_sucking)
+        {
+            Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.right = new Vector2(mouse.x - gameObject.transform.position.x, mouse.y - gameObject.transform.position.y);
+            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed * Time.fixedDeltaTime, Input.GetAxis("Vertical") * speed * Time.fixedDeltaTime);
+        }
+        
     }
 }
