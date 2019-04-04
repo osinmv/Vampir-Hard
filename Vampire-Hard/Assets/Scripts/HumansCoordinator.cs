@@ -13,6 +13,7 @@ public class HumansCoordinator : MonoBehaviour
     private Sprite[] hats;
     private List<GameObject> crowd = new List<GameObject>();
     private Color[] cols = new Color[] {Color.green,Color.yellow,Color.magenta,Color.red,Color.cyan,Color.blue,Color.white};
+
     void Awake()
     {
         hats = Resources.LoadAll("Sprites/hats", typeof(Sprite)).Cast<Sprite>().ToArray();
