@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
         if (!started_sucking)
         {
             Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            
             transform.right = new Vector2(mouse.x - gameObject.transform.position.x, mouse.y - gameObject.transform.position.y);
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed * Time.fixedDeltaTime, Input.GetAxis("Vertical") * speed * Time.fixedDeltaTime);
         }

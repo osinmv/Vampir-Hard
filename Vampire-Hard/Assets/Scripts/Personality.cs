@@ -28,7 +28,7 @@ public class Personality : MonoBehaviour
     {
         Vector2 vect = new Vector2((current_goal.x - gameObject.transform.position.x), current_goal.y - gameObject.transform.position.y);
         gameObject.transform.right = new Vector2(current_goal.x - gameObject.transform.position.x, current_goal.y - gameObject.transform.position.y);
-        rgb.MovePosition(rgb.position + vect * Time.fixedDeltaTime/20);
+        rgb.MovePosition(rgb.position + vect * Time.fixedDeltaTime/5);
     }
     public void setTarget(Vector2 target)
     {
