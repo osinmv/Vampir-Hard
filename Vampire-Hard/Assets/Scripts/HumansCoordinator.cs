@@ -61,9 +61,9 @@ public class HumansCoordinator : MonoBehaviour
         {
             if (crowd_object[i].reached_goal)
             {
-                if (Random.Range(0, 1) > 0.5)
+                if (Random.Range(0, 3) >=1)
                 {
-                    crowd_object[i].set_random_goal(new Vector2(Random.Range(-6, 6), Random.Range(-4, 4)));
+                    crowd_object[i].setTarget(new Vector2(Random.Range(-6, 6), Random.Range(-4, 4)));
                 }
                 else
                 {
