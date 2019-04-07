@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
     public bool started_sucking;
     public Animator animator;
     private float timer;
-
+    public int health = 10;
+    public int score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health <= 0)
+        {
+            Application.Quit();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         if (Input.GetKeyDown(KeyCode.E)&&!started_sucking)
         {
             CancelInvoke();
@@ -32,7 +41,32 @@ public class Player : MonoBehaviour
 
 
     }
-
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Personality a = collision.gameObject.GetComponent<Personality>();
+        if ((collision.gameObject.name == "body_brown(Clone)" || collision.gameObject.name == "body_nicy(Clone)" || collision.gameObject.name == "body_soldier(Clone)") && started_sucking)
+        {
+            if (a.garlic && a.drunk)
+            {
+                score += 100;
+                Destroy(collision.gameObject);
+            }
+            if (a.silver && a.cross)
+            {
+                health -= 1;
+            }
+            if (!a.garlic && !a.drunk && !a.silver && !a.cross)
+            {
+                score += 20;
+                Destroy(collision.gameObject);
+            }
+            if (!a.garlic || !a.drunk || !a.silver || !a.cross)
+            {
+                score += 20;
+                Destroy(collision.gameObject);
+            }
+        }
+    }
     void set_Animation_walk()
     {
         animator.Play("Walking");
